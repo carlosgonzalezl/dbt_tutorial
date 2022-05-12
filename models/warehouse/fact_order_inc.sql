@@ -29,6 +29,7 @@ SELECT
     --NK and SK
     o.o_orderkey                                                        AS order_nk,
     NVL(c.customer_id,'-1')                                             AS customer_id,
+    {{date_to_num('o.o_orderDate')}}                                    AS date_id,
 
     --Other attributes
     o.o_orderDate                                                       AS order_date,

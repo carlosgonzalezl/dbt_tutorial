@@ -1,0 +1,10 @@
+version: 2
+
+ 
+snapshots:
+  - name: sfsd_customer
+    columns:
+      - name: c_custkey
+        tests:
+          - unique
+          - not_null

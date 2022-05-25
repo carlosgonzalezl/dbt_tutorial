@@ -8,4 +8,9 @@ sources:
     tables:
       - name: ORDERS
       - name: CUSTOMER
+        columns:
+        - name: c_custkey
+          tests:
+            - unique
+            - not_null
       - name: NATION

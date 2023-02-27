@@ -8,3 +8,9 @@ models:
         tests:
           - unique
           - not_null
+  - name: fact_question
+    columns:
+      - name: question_id
+        tests:
+          - unique
+          - not_null

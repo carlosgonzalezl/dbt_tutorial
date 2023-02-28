@@ -4,7 +4,8 @@
     config(
       unique_key='c_questionKey',
       strategy='timestamp',
-      updatedAt='updatedDate'
+      updated_at='updatedDate',
+      enabled=false
     )
 }}
 

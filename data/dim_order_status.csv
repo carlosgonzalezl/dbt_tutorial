@@ -1,0 +1,5 @@
+order_status_id, order_status_code, order_status_desc
+1,"P","Pending"
+2,"F","Fullfilled"
+3,"O","Ordered"
+4,"R","Returned"

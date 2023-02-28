@@ -15,7 +15,7 @@ profile: 'dbt_tutorial'
 model-paths: ["models"]
 analysis-paths: ["analyses"]
 test-paths: ["tests"]
-seed-paths: ["seeds"]
+seed-paths: ["data"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 
@@ -31,6 +31,10 @@ clean-targets:         # directories to be removed by `dbt clean`
 # In this example config, we tell dbt to build all models in the example/ directory
 # as tables. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
+seeds:
+  dbt_tutorial:
+    +schema: WH
+
 models:
   dbt_tutorial:
     # Config indicated by + and applies to all files under models/example/

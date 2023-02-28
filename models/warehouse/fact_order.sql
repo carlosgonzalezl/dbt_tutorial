@@ -12,6 +12,11 @@ WITH orders AS(
 customers AS(
     SELECT *
     FROM {{ref('dim_customer')}}
+),
+
+order_status AS(
+    SELECT *
+    FROM {{ref('dim_order_status')}}
 )
 
 SELECT
@@ -25,6 +30,7 @@ SELECT
     --Other attributes
     TRY_TO_NUMBER(TO_CHAR(o_orderDate,'YYYYMMDD'))                      AS order_date,
     o_orderStatus                                                       AS order_status,
+    NVL(os.order_status_desc,'N/A')                                     AS order_status_long,
     o_totalPrice                                                        AS total_price,
 
 
@@ -32,3 +38,4 @@ SELECT
     CURRENT_TIMESTAMP                                                   AS audt_create_date
 FROM orders o
     LEFT JOIN customers c ON o.o_custKey = c.customer_nk
+    LEFT JOIN order_status os ON o.o_orderStatus = os.order_status_code
